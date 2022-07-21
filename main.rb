@@ -52,7 +52,7 @@ def play_game(board, player_1, player_2)
 
     if turn == 0
       board.display()
-      puts "#{player_1.name}'s turn, put the number where you want to place:"
+      puts "#{player_1.name}'s turn, type a number:"
       placement = gets.chomp.to_i
       # Checks if input is correct.
       until board.spots.one?(placement) && placement.is_a?(Integer) && placement < 10 do
@@ -70,7 +70,7 @@ def play_game(board, player_1, player_2)
 
     if turn == 1
       board.display()
-      puts "#{player_2.name}'s turn, put the number where you want to place:"
+      puts "#{player_2.name}'s turn, type a number:"
       placement = gets.chomp.to_i
       # Checks if input is correct.
       until board.spots.one?(placement) && placement.is_a?(Integer) && placement < 10 do
@@ -112,25 +112,28 @@ end
 board = Board.new()
 
 # Start game intro thingy
-puts "Welcome to this game of TicTacToe"
+puts "Welcome to this game of TicTacToe!"
 puts ""
 sleep(1)
-puts "First, you have to choose the first players name:"
+puts "First, you have to choose the first player's name:"
 player_1 = Player.new(gets.chomp)
 puts ""
-puts "The first players name was chosen as #{player_1.name}"
+puts "The first player is #{player_1.name}."
 sleep(1)
 puts ""
-puts "Now, choose the second players name: "
+puts "Now, choose the second player's name: "
 player_2 = Player.new(gets.chomp)
 puts ""
-puts "The second players name was chosen as #{player_2.name}"
+puts "The second player is #{player_2.name}."
 sleep(1)
-puts "Good, #{player_1.name} will be playing against #{player_2.name}"
+puts "Good, #{player_1.name} will be playing against #{player_2.name}."
 sleep(1)
 puts ""
-puts "Now you have to choose a symbol for each player, to display on the board."
-puts "The symbol must only be one character long. If in doubt, just use 'x' and 'y' for each player respectively"
+puts "--------------------------------------------------------------------"
+puts ""
+puts "Now choose a symbol for each player, to display on the board."
+puts "The symbol must be one character long."
+puts "If in doubt, just use 'x' and 'y' for each player."
 sleep(1)
 puts ""
 puts "Choose a symbol for #{player_1.name}:"
@@ -141,7 +144,7 @@ while player_1.symbol.length != 1 do
 end
 puts ""
 sleep(1)
-puts "Good Job, #{player_1.name}'s symbol is #{player_1.symbol}"
+puts "Good Job, #{player_1.name}'s symbol is #{player_1.symbol}."
 puts ""
 sleep(1)
 puts "Now, choose a symbol for #{player_2.name}:"
@@ -152,18 +155,20 @@ while player_2.symbol.length != 1 do
 end
 puts ""
 sleep(1)
-puts "Well done, #{player_2.name}'s symbol is #{player_2.symbol}"
+puts "Well done, #{player_2.name}'s symbol is #{player_2.symbol}."
+sleep(2)
 puts ""
-sleep(1)
+puts "--------------------------------------------------------------------"
+puts ""
 puts "Now we are finally ready to play."
 puts ""
 sleep(1)
 puts "Here is the board:"
 board.display()
 puts ""
-sleep(2)
+sleep(3)
 puts "The game works like this:"
-puts "The player whom's turn it is, puts a piece on the board, "
+puts "The player whose turn it is, puts a piece on the board, "
 puts "by typing the corrospoding number on the board."
 puts ""
 sleep(2)
@@ -171,6 +176,3 @@ sleep(2)
 
 play_game(board, player_1, player_2)
 
-# todo:
-# Check for full board and make tieing a thing.
-# Bug-fixes?
